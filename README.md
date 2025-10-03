@@ -12,13 +12,19 @@ docker run --name 1Pharma_Hackathon \
   -e POSTGRES_PASSWORD=mysecretkey \
   -p 5431:5432 \
   -d postgres
+```
 
+```bash
 # Step 2: Check Container Status
 docker ps -a
+```
 
+```bash
 # Step 3: Copy Schema File to Container
 docker cp ./schema.sql 1Pharma_Hackathon:/schema.sql
+```
 
+```bash
 # Step 4: Access PostgreSQL in the Container
 docker exec -it 1Pharma_Hackathon psql -U postgres
 
@@ -29,13 +35,18 @@ docker exec -it 1Pharma_Hackathon psql -U postgres
 \dt
 # Exit psql
 \q
+```
 
+```bash
 # Step 5: Run Python Import Script (outside container)
 python3 importing_data.py
+```
 
+```bash
 # Step 6: Start the FastAPI Server
 python3 main.py
 
+```
 ---
 
 ## 🗄️ Schema.sql Detailed Explanation
