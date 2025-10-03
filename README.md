@@ -100,6 +100,46 @@ Stores all medicine-related information.
 
 ---
 
+### Trigger Function
+
+The trigger `medicines_tsv_trigger()` automatically:
+
+- Maintains normalized `search_name`.
+- Builds weighted `tsvectors`.
+
+---
+
+## File Descriptions
+
+### Core Application Files
+
+- **main.py** → FastAPI app with four endpoints (prefix, substring, fulltext, fuzzy). Uses asyncpg pooling.
+- **connection_test.py** → FastAPI DB introspection API with `/tables` and `/table/{table_name}`.
+- **importing_data.py** → Bulk JSON importer using PostgreSQL `COPY`.
+
+### Frontend
+
+- **index.html** → User interface with:
+  - 500ms debouncing
+  - Pagination (5 results per page)
+  - Four search modes
+
+### Database Schema
+
+- **schema.sql** → Optimized PostgreSQL schema for search performance.
+
+---
+
+## Frontend UI Features (index.html)
+
+- **Search Modes:** Prefix, Substring, Full-text, Fuzzy.
+- **Debouncing:** 500ms delay before sending requests. (reducing API hits)
+- **Modals:** Client-side, Elegant Modal displayed for each medicine.
+
+---
+
+## Performance Approach
+
 ## Indexing Strategy
 
 ### 1. `idx_medicines_lower_name_varchar_pattern`
@@ -139,55 +179,6 @@ Stores all medicine-related information.
 - **Benefit:** Useful for queries that order by similarity or need quick case-insensitive sorting.
 
 ---
-
-### Trigger Function
-
-The trigger `medicines_tsv_trigger()` automatically:
-
-- Maintains normalized `search_name`.
-- Builds weighted `tsvectors`.
-
----
-
-## File Descriptions
-
-### Core Application Files
-
-- **main.py** → FastAPI app with four endpoints (prefix, substring, fulltext, fuzzy). Uses asyncpg pooling.
-- **connection_test.py** → FastAPI DB introspection API with `/tables` and `/table/{table_name}`.
-- **importing_data.py** → Bulk JSON importer using PostgreSQL `COPY`.
-
-### Frontend
-
-- **index.html** → User interface with:
-  - 500ms debouncing
-  - Pagination (5 results per page)
-  - Four search modes
-
-### Database Schema
-
-- **schema.sql** → Optimized PostgreSQL schema for search performance.
-
----
-
-## Frontend UI Features
-
-- **Search Modes:** Prefix, Substring, Full-text, Fuzzy.
-- **Debouncing:** 500ms delay before sending requests.
-- **Modals:** Client-side, Elegant Modal displayed for each medicine.
-
----
-
-## Performance Approach
-
-### Indexing Strategy
-
-- **Prefix Search** → `varchar_pattern_ops` index.
-- **Substring / Fuzzy Search** → PostgreSQL `pg_trgm` GIN index.
-- **Full-text Search** → Weighted `tsvector`:
-  - **A →** name
-  - **B →** composition
-  - **C →** manufacturer
 
 ### Connection Management
 
