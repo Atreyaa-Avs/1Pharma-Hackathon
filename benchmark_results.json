@@ -1,8 +1,8 @@
 {
   "Ava": {
     "/search/prefix": {
-      "avg_latency_ms": 587.4914540001191,
-      "throughput_rps": 73.24174404404434,
+      "avg_latency_ms": 434.880570002133,
+      "throughput_rps": 102.23125855151055,
       "sample_response_count": 50,
       "sample_response_preview": [
         {
@@ -45,8 +45,8 @@
   },
   "Injection": {
     "/search/substring": {
-      "avg_latency_ms": 5064.922528000316,
-      "throughput_rps": 8.859004984548253,
+      "avg_latency_ms": 2097.6688979996834,
+      "throughput_rps": 17.997199635993326,
       "sample_response_count": 50,
       "sample_response_preview": [
         {
@@ -71,26 +71,26 @@
           "price": "25.4"
         },
         {
+          "name": "TT Injection",
+          "manufacturer_name": "Cipla Ltd",
+          "marketer_name": "Cipla Ltd",
+          "type": "allopathy",
+          "price": "26.13"
+        },
+        {
           "name": "NS Injection",
           "manufacturer_name": "Aculife Healthcare Private Limited",
           "marketer_name": "Aculife Healthcare Private Limited",
           "type": "allopathy",
           "price": "64"
-        },
-        {
-          "name": "OP Injection",
-          "manufacturer_name": "Monokem Labs",
-          "marketer_name": "Monokem Labs",
-          "type": "allopathy",
-          "price": "6.22"
         }
       ]
     }
   },
   "antibiotic": {
     "/search/fulltext": {
-      "avg_latency_ms": 125.60207200061996,
-      "throughput_rps": 217.7824605838181,
+      "avg_latency_ms": 253.7163559976034,
+      "throughput_rps": 104.81129982580588,
       "sample_response_count": 50,
       "sample_response_preview": [
         {
@@ -133,24 +133,10 @@
   },
   "Avastn": {
     "/search/fuzzy": {
-      "avg_latency_ms": 7314.959175999975,
-      "throughput_rps": 5.985341587215083,
+      "avg_latency_ms": 8308.112445995212,
+      "throughput_rps": 5.24768011081024,
       "sample_response_count": 20,
       "sample_response_preview": [
-        {
-          "name": "Avastin 20mg Tablet",
-          "manufacturer_name": "Aglowmed Drugs Pvt. Ltd.",
-          "marketer_name": "Aglowmed Drugs Pvt. Ltd.",
-          "type": "allopathy",
-          "price": "94.65"
-        },
-        {
-          "name": "Avastin 400mg Injection",
-          "manufacturer_name": "Roche Products India Pvt Ltd",
-          "marketer_name": "Roche Products India Pvt Ltd",
-          "type": "allopathy",
-          "price": "123506"
-        },
         {
           "name": "Avastin 10mg Tablet",
           "manufacturer_name": "Orchid Chemicals & Pharmaceuticals Ltd",
@@ -164,6 +150,20 @@
           "marketer_name": "Roche Products India Pvt Ltd",
           "type": "allopathy",
           "price": "33863"
+        },
+        {
+          "name": "Avastin 400mg Injection",
+          "manufacturer_name": "Roche Products India Pvt Ltd",
+          "marketer_name": "Roche Products India Pvt Ltd",
+          "type": "allopathy",
+          "price": "123506"
+        },
+        {
+          "name": "Avastin 20mg Tablet",
+          "manufacturer_name": "Aglowmed Drugs Pvt. Ltd.",
+          "marketer_name": "Aglowmed Drugs Pvt. Ltd.",
+          "type": "allopathy",
+          "price": "94.65"
         },
         {
           "name": "Avastimab 400mg Injection",

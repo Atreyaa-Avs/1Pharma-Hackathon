@@ -8,51 +8,35 @@ A **FastAPI-based web service** for PostgreSQL database introspection and medici
 
 ### Step 1: Start PostgreSQL Docker Container
 
-docker run --name Pharmal_Hack -e POSTGRES_PASSWORD=mysecretkey -p 5431:5432 -d postgres
-
-text
+docker run --name 1Pharma_Hackathon -e POSTGRES_PASSWORD=mysecretkey -p 5431:5432 -d postgres
 
 ### Step 2: Check Container Status
 
 docker ps -a
 
-text
-
 ### Step 3: Copy Schema File to Container
 
-docker cp "E:\1Pharma_Hack\schema.sql" Pharmal_Hack:/schema.sql
-
-text
+docker cp "C:\1Pharmacy\schema.sql" 1Pharma_Hackathon:/schema.sql
 
 ### Step 4: Access PostgreSQL in the Container
 
-docker exec -it Pharmal_Hack psql -U postgres
-
-text
+docker exec -it 1Pharma_Hackathon psql -U postgres
 
 ### Step 5: Execute Schema File in PostgreSQL
 
 \i /schema.sql
 
-text
-
 ### Step 6: Verify Table Creation
 
 \dt
 
-text
-
 ### Step 7: Run Python Import Script (outside container)
 
-python -u "e:\IPharma_Hack\import_data.py"
-
-text
+python -u "c:\1Pharmacy\importing_data.py"
 
 ### Step 8: Start the FastAPI Server
 
 python main.py
-
-text
 
 ---
 
@@ -141,10 +125,10 @@ Below are the measured average latency and throughput for each search mode, base
 
 | Query      | Endpoint          | Avg Latency (ms) | Throughput (req/s) |
 | ---------- | ----------------- | ---------------- | ------------------ |
-| Ava        | /search/prefix    | 587.49           | 73.24              |
-| Injection  | /search/substring | 5064.92          | 8.86               |
-| antibiotic | /search/fulltext  | 125.60           | 217.78             |
-| Avastn     | /search/fuzzy     | 7314.96          | 5.99               |
+| Ava        | /search/prefix    | 434.880          | 102.23             |
+| Injection  | /search/substring | 2097.66          | 17.99              |
+| antibiotic | /search/fulltext  | 253.71           | 104.8              |
+| Avastn     | /search/fuzzy     | 8308.11          | 5.247              |
 
 - **Avg Latency (ms):** Average response time per request.
 - **Throughput (req/s):** Number of requests handled per second.
