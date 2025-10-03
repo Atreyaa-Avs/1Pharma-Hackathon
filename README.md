@@ -4,39 +4,37 @@ A **FastAPI-based web service** for PostgreSQL database introspection and medici
 
 ---
 
-## Setup Instructions
+## 🛠️ Setup Instructions (Bash)
 
-### Step 1: Start PostgreSQL Docker Container
+```bash
+# Step 1: Start PostgreSQL Docker Container
+docker run --name 1Pharma_Hackathon \
+  -e POSTGRES_PASSWORD=mysecretkey \
+  -p 5431:5432 \
+  -d postgres
 
-docker run --name 1Pharma_Hackathon -e POSTGRES_PASSWORD=mysecretkey -p 5431:5432 -d postgres
-
-### Step 2: Check Container Status
-
+# Step 2: Check Container Status
 docker ps -a
 
-### Step 3: Copy Schema File to Container
+# Step 3: Copy Schema File to Container
+docker cp ./schema.sql 1Pharma_Hackathon:/schema.sql
 
-docker cp "C:\1Pharmacy\schema.sql" 1Pharma_Hackathon:/schema.sql
-
-### Step 4: Access PostgreSQL in the Container
-
+# Step 4: Access PostgreSQL in the Container
 docker exec -it 1Pharma_Hackathon psql -U postgres
 
-### Step 5: Execute Schema File in PostgreSQL
-
+# Inside psql, execute:
+# Load schema
 \i /schema.sql
-
-### Step 6: Verify Table Creation
-
+# Verify table creation
 \dt
+# Exit psql
+\q
 
-### Step 7: Run Python Import Script (outside container)
+# Step 5: Run Python Import Script (outside container)
+python3 importing_data.py
 
-python -u "c:\1Pharmacy\importing_data.py"
-
-### Step 8: Start the FastAPI Server
-
-python main.py
+# Step 6: Start the FastAPI Server
+python3 main.py
 
 ---
 
